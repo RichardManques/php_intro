@@ -8,11 +8,19 @@
 <body>
     <a href="index.php">Volver</a>
     <h1>Formularios en PHP</h1>
-    <form action="controllers/controladorsaludar.php" method="POST">
+    <form action="controllers/Controladorsaludar.php" method="POST">
         <input type="text" name="nombre" placeholder="Tu nombre"><br>
         <input type="text" name="edad" placeholder="Edad"><br>
         <button>Saludar</button><br>
-        
     </form>
+    <p>
+        <?php
+        session_start();//tambien colocar que trabajaré con sesiones
+            if(isset($_SESSION['msg'])){
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);//una vez que la muestre se destruye la información
+            }
+        ?>
+    </p>
 </body>
 </html>
